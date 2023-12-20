@@ -44,7 +44,7 @@ typedef struct turtle
 			SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 			SDL_RenderDrawLine(renderer, tposition.x, tposition.y, opposite + tposition.x, adjacent + tposition.y);
 			SDL_RenderPresent(renderer);
-			printf(" %d\n %d\n %d\n %d\n %d\n", tposition.x, tposition.y, opposite + tposition.x, adjacent + tposition.y, angle);
+			printf("%d\n %d\n %d\n %d\n", tposition.x, tposition.y, opposite + tposition.x, adjacent + tposition.y);
 		}
 		tposition.x += opposite;
 		tposition.y += adjacent;
@@ -166,62 +166,14 @@ int main(void)
 
 	SDL_RenderPresent(renderer);
 
-	int recdepth = 7;
 	turtle Turtle;
-	// start
-	Turtle.pen_up();
-	Turtle.turn(15);
-	Turtle.move(750, renderer);
-	
-	// recurison?
-
-	//line 1
-	int a= 570;
-	int b= a/3;
-	Turtle.pen_down();
-	Turtle.turn(90);
-	Turtle.move(a/3, renderer);
-
-	Turtle.pen_up();
-	Turtle.turn(90);
-	Turtle.move(a/3, renderer);
 
 	Turtle.pen_down();
-	Turtle.turn(90);
-	Turtle.move(a / 3, renderer);
 
-    //line2
-	Turtle.turn(-150);
-	Turtle.move(a / 3, renderer);
+	Turtle.turn(45);
+	Turtle.move(707, renderer);
 
-	Turtle.pen_up();
-	Turtle.turn(-150);
-	Turtle.move(a / 3, renderer);
-
-	Turtle.pen_down();
-	Turtle.turn(-150);
-	Turtle.move(a / 3, renderer);
-
-	//line 3
-	Turtle.turn(-30);
-	Turtle.move(a / 3, renderer);
-	
-	Turtle.pen_up();
-	Turtle.turn(-30);
-	Turtle.move(a / 3, renderer);
-
-    Turtle.pen_down();
-	Turtle.turn(-30);
-	Turtle.move(a / 3, renderer);
-
-     printf("B = %d", b);
-    while(pen)
-	{
-		Turtle.turn(90);
-	    Turtle.move(a/3, renderer);
-		Turtle.turn(-30);
-	}
-		go = 1;
+	go = 1;
 	while (go)
 	{
 		/* Here we are going to check for any input events.
@@ -243,6 +195,7 @@ int main(void)
 				break;
 			}
 		}
+		
 
 		SDL_Delay(10);
 	}
@@ -253,3 +206,14 @@ int main(void)
 
 	return 0;
 }
+
+
+// first triangle
+	int a = 570;
+    Turtle.pen_down();
+	Turtle.turn(90);
+	Turtle.move(a, renderer);
+	Turtle.turn(-150);
+	Turtle.move(a, renderer);
+	Turtle.turn(-30);
+	Turtle.move(a, renderer);
