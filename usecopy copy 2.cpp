@@ -214,8 +214,6 @@ int main(void)
 	Turtle.turn(-30);
 	Turtle.move(a / 3, renderer);
 
-	printf("B = %d ", b);
-
 	if (bool pen = 1 )
 	{
 
@@ -227,6 +225,8 @@ int main(void)
 		Turtle.turn(150);
 		Turtle.move(a / 3, renderer);
 	}
+	printf("B = %d ", b);
+
 	go = 1;
 	while (go)
 	{
