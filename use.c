@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
 typedef struct position
 {
 	int x;
@@ -30,13 +28,12 @@ void pen_down(char *pen)
 }
 
 void move(int n, turtle)
-{}
+{
+}
 
 void turn(int degrees)
-{}
-
-
-	
+{
+}
 
 // make pen structure with =pens position- x & y, angle pointing/heading, pen drawing/not drawing
 
@@ -96,16 +93,16 @@ int main(void)
 		 * Update our graphics
 		 * Draw our graphics
 	*/
- typedef struct RGBcolour
-  {
-	Uint8 r;
-  	Uint8 g;
-	Uint8 b;
-  } RGBcolour;
+	typedef struct RGBcolour
+	{
+		Uint8 r;
+		Uint8 g;
+		Uint8 b;
+	} RGBcolour;
 
-  RGBcolour lred = {205,0,0};
-  
-    char fractal_choice;
+	const RGBcolour lred = {205, 0, 0};
+
+	char fractal_choice;
 	printf("Which fractal would you like to make?\n a, b, c \n");
 	scanf("%c", &fractal_choice);
 
@@ -113,62 +110,59 @@ int main(void)
 	fflush(stdin);
 	printf("Choose your background colour\n");
 	scanf("%s", bg_colour);
-    
 
-	if(!strcmp(bg_colour, "red"))
-	{ 
+	if (!strcmp(bg_colour, "red"))
+	{
 		SDL_SetRenderDrawColor(renderer, lred.r, lred.g, lred.b, 1);
 	}
 
-	else if(!strcmp(bg_colour, "orange"))
+	else if (!strcmp(bg_colour, "orange"))
 	{
-			SDL_SetRenderDrawColor(renderer, 255, 127, 36, 1);
+		SDL_SetRenderDrawColor(renderer, 255, 127, 36, 1);
 	}
 
-	else if(!strcmp(bg_colour, "yellow"))
+	else if (!strcmp(bg_colour, "yellow"))
 	{
 		SDL_SetRenderDrawColor(renderer, 255, 205, 36, 1);
 	}
 
-	else if(!strcmp(bg_colour, "green"))
+	else if (!strcmp(bg_colour, "green"))
 	{
 		SDL_SetRenderDrawColor(renderer, 98, 206, 53, 1);
 	}
 
-	else if(!strcmp(bg_colour, "blue"))
-    {	
+	else if (!strcmp(bg_colour, "blue"))
+	{
 		SDL_SetRenderDrawColor(renderer, 86, 190, 233, 1);
 	}
 
-	else if(!strcmp(bg_colour, "purple"))
+	else if (!strcmp(bg_colour, "purple"))
 	{
 		SDL_SetRenderDrawColor(renderer, 157, 90, 213, 1);
 	}
 
-	else if(!strcmp(bg_colour, "pink"))
-	{ 
+	else if (!strcmp(bg_colour, "pink"))
+	{
 		SDL_SetRenderDrawColor(renderer, 255, 98, 173, 1);
 	}
-		
-	else if(!strcmp(bg_colour, "black"))
+
+	else if (!strcmp(bg_colour, "black"))
 	{
 
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 1);
 	}
-		
-	else if(!strcmp(bg_colour, "white"))
+
+	else if (!strcmp(bg_colour, "white"))
 	{
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 1);
 	}
 
-     SDL_RenderClear(renderer);
+	SDL_RenderClear(renderer);
 
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 	SDL_RenderDrawLine(renderer, 5, 5, 100, 100);
- 
-	SDL_RenderPresent(renderer);
 
- 
+	SDL_RenderPresent(renderer);
 
 	go = 1;
 	while (go)
@@ -201,7 +195,6 @@ int main(void)
 				  and also: https://wiki.libsdl.org/SDL_EventType */
 			}
 		}
-		
 
 		/* Turns out SDL_WaitEvent just does an SDL_PollEvent and then an SDL_Delay(10) if there is nothing to do! */
 		SDL_Delay(10);
@@ -209,19 +202,11 @@ int main(void)
 
 	/* If we get outside the main loop, it means our user has requested we exit. */
 
-    
-
-	
-		/* Call our pointy drawing */
-	
-
-		/* This tells the renderer to actually show its contents to the screen. */
-    SDL_RenderPresent(renderer);
+	/* This tells the renderer to actually show its contents to the screen. */
+	SDL_RenderPresent(renderer);
 	/* Our cleanup phase, hopefully fairly self-explanatory ;) */
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 
 	return 0;
 }
-
-
