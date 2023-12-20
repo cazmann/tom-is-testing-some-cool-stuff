@@ -59,11 +59,14 @@ typedef struct turtle
 void kochsnowflake()
 {
 }
+// make pen structure with =pens position- x & y, angle pointing/heading, pen drawing/not drawing
 
+// make
 
 int main(void)
 {
-	
+	/* These are some variables to help show you what the parameters are for the initialisation function.
+	   You can experiment with the numbers to see what they do. */
 	int winPosX = 100;
 	int winPosY = 100;
 	int winWidth = 1000;
@@ -180,9 +183,11 @@ int main(void)
 	Turtle.move(a / 3, renderer);
 
 	Turtle.pen_up();
+	Turtle.turn(90);
 	Turtle.move(a / 3, renderer);
 
 	Turtle.pen_down();
+	Turtle.turn(90);
 	Turtle.move(a / 3, renderer);
 
 	// line2
@@ -190,9 +195,11 @@ int main(void)
 	Turtle.move(a / 3, renderer);
 
 	Turtle.pen_up();
+	Turtle.turn(-150);
 	Turtle.move(a / 3, renderer);
 
 	Turtle.pen_down();
+	Turtle.turn(-150);
 	Turtle.move(a / 3, renderer);
 
 	// line 3
@@ -200,12 +207,14 @@ int main(void)
 	Turtle.move(a / 3, renderer);
 
 	Turtle.pen_up();
+	Turtle.turn(-30);
 	Turtle.move(a / 3, renderer);
 
 	Turtle.pen_down();
+	Turtle.turn(-30);
 	Turtle.move(a / 3, renderer);
 
-	printf("B = %d ", b);  
+	printf("B = %d ", b);
 
 	if (bool pen = 1 )
 	{
