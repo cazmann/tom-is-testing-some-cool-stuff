@@ -8,8 +8,8 @@
 
 typedef struct position
 {
-	int x;
-	int y;
+	int x = 0;
+	int y = 0;
 } position;
 
 typedef struct colour
@@ -22,7 +22,7 @@ typedef struct colour
 typedef struct turtle
 {
 	position tposition;
-	int angle;
+	int angle = 0;
 	bool pen;
 
 	void pen_up()
@@ -59,48 +59,16 @@ typedef struct turtle
 
 turtle Turtle;
 
-int start(double a, SDL_Renderer *renderer)
+int Sierp(int n, int rd, int a, SDL_Renderer *renderer)
 {
-	//start point//
-	
-	Turtle.tposition.x=194;
-	Turtle.tposition.y=724;
-
-	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y );
-	// first triangle
-
 	Turtle.pen_down();
-	Turtle.turn(90);
-	Turtle.move(a, renderer);
-	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y );
+	Turtle.move(a / 2, renderer);
 	Turtle.turn(120);
-	Turtle.move(a, renderer);
-	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y );
-	Turtle.turn(120);
-	Turtle.move(a, renderer);
-	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y );
-	Turtle.turn(120);
-	return 0;
-}
-
-
-int Sierp(int n, int rd, double a, SDL_Renderer *renderer)
-{
-	// make this start after triangle drawn
-	Turtle.move(a/2, renderer);
-	Turtle.turn(60);
-	Turtle.pen_down();
-	Turtle.move(a/2, renderer);
-	Turtle.turn(120);
-	Turtle.move(a/2, renderer);
-	Turtle.turn(120);
-	Turtle.move(a/2, renderer);
-	Turtle.turn(60);
-
+	Turtle.move(a / 2, renderer);
 	if (rd == n)
 		return 1;
 	else
-		return 1 + Sierp(n + 1, rd, a/2, renderer);
+		return 1 + Sierp(n + 1, rd, a, renderer);
 }
 
 int main(void)
@@ -201,17 +169,25 @@ int main(void)
 	printf("Choose recursion depth\n");
 	scanf(" %d", &rd);
 	printf(" you choose %d\n", rd);
-	//
-	double a = 580.00000;
 	int n = 0;
 	// start
+	void start()
+	Turtle.pen_up();
+	Turtle.turn(15);
+	Turtle.move(750, renderer);
+	Turtle.turn(75);
+	Turtle.pen_down();
+	// first triangle
+	int a = 570;
+	Turtle.move(a, renderer);
+	Turtle.turn(120);
+	Turtle.move(a, renderer);
+	Turtle.turn(120);
+	Turtle.move(a, renderer);
 
-	int start(double a, SDL_Renderer *renderer);
-	int result2 = start(a, renderer);
-	printf("Result of Sierpinski: %d\n", result2);
-	int Sierp(int n, int rd, double a, SDL_Renderer *renderer);
-	int result1 = Sierp(n, rd, a, renderer);
-	printf("Result of Sierpinski: %d\n", result1);
+	int Sierp(int n, int rd, int a, SDL_Renderer *renderer);
+	int result = Sierp(n, rd, a, renderer);
+	printf("Result of Sierpinski: %d\n", result);
 
 	go = 1;
 	while (go)
