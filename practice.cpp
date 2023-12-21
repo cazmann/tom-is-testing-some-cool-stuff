@@ -24,17 +24,6 @@ typedef struct turtle
 	position tposition;
 	int angle = 0;
 	bool pen;
-
-	void pen_up()
-	{
-		pen = 0;
-	}
-
-	void pen_down()
-	{
-		pen = 1;
-	}
-
 	void move(int n, SDL_Renderer *renderer)
 	{
 		int opposite;
@@ -57,7 +46,21 @@ typedef struct turtle
 	}
 } turtle;
 
-void Sierpl()
+
+bool pen_up(turtle *Turtle)
+{
+	Turtle-> pen = false;
+	return Turtle->pen;
+}
+
+bool pen_down(turtle *Turtle)
+{
+	Turtle-> pen = true;
+	return Turtle -> pen;
+}
+
+
+void kochsnowflake()
 {
 }
 
@@ -154,20 +157,55 @@ int main(void)
 	SDL_RenderPresent(renderer);
 
 	turtle Turtle;
-
-		// start
-	Turtle.pen_up();
+	// start
+	pen_up(&Turtle);
 	Turtle.turn(15);
 	Turtle.move(750, renderer);
 	Turtle.turn(75);
-	Turtle.pen_down();
-//first triangle
+	pen_down(&Turtle);
+	// recurison?
+
 	int a = 570;
-	Turtle.move(a, renderer);
-	Turtle.turn(120);
-	Turtle.move(a, renderer);
-	Turtle.turn(120);
-	Turtle.move(a, renderer);
+	int b = a / 3;
+
+	// line 1
+
+	// line 1
+pen_up(&Turtle);  // Lift the pen
+Turtle.move(a / 3, renderer);
+Turtle.turn(60);
+Turtle.move(a / 3, renderer);
+Turtle.turn(120);
+Turtle.move(a / 3, renderer);
+
+// Move to the next position
+Turtle.move(a / 3, renderer);
+pen_down(&Turtle);  // Lower the pen
+
+Turtle.move(a / 3, renderer);
+Turtle.turn(120);
+// line2
+Turtle.move(a / 3, renderer);
+Turtle.turn(120);
+// line 3
+Turtle.move(a / 3, renderer);
+Turtle.turn(120);
+
+// Draw the triangle with the pen up
+pen_up(&Turtle);
+Turtle.move(a / 3, renderer);
+Turtle.turn(60);
+Turtle.move(a / 3, renderer);
+Turtle.turn(120);
+Turtle.move(a / 3, renderer);
+
+// Lower the pen for the next segment
+pen_down(&Turtle);
+
+Turtle.turn(60);
+Turtle.move(a / 3, renderer);
+Turtle.turn(120);
+Turtle.move(a / 3, renderer);
 
 	go = 1;
 	while (go)

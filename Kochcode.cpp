@@ -208,12 +208,70 @@ int main(void)
 }
 
 
-// first triangle
+		// start
+	Turtle.pen_up();
+	Turtle.turn(15);
+	Turtle.move(750, renderer);
+	Turtle.turn(75);
+	Turtle.pen_down();
+//first triangle
 	int a = 570;
-    Turtle.pen_down();
-	Turtle.turn(90);
 	Turtle.move(a, renderer);
-	Turtle.turn(-150);
+	Turtle.turn(120);
 	Turtle.move(a, renderer);
-	Turtle.turn(-30);
+	Turtle.turn(120);
 	Turtle.move(a, renderer);
+
+	int a = 570;
+	int b = a / 3;
+
+	// line 1
+	Turtle.move(a / 3, renderer);
+	Turtle.pen_up();
+	Turtle.move(a / 3, renderer);
+	Turtle.pen_down();
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(120);
+	// line2
+	Turtle.move(a / 3, renderer);
+	Turtle.pen_up();
+	Turtle.move(a / 3, renderer);
+	Turtle.pen_down();
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(120);
+	// line 3
+	Turtle.move(a / 3, renderer);
+	Turtle.pen_up();
+	Turtle.move(a / 3, renderer);
+	Turtle.pen_down();
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(120);
+
+	// triangle 1
+	Turtle.pen_down();
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(-60);
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(120);
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(-60);
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(120);
+
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(-60);
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(120);
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(-60);
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(120);
+
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(-60);
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(120);
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(-60);
+	Turtle.move(a / 3, renderer);
+	Turtle.turn(120);
