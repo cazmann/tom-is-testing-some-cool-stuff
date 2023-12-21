@@ -61,46 +61,50 @@ turtle Turtle;
 
 int start(double a, SDL_Renderer *renderer)
 {
-	//start point//
-	
-	Turtle.tposition.x=194;
-	Turtle.tposition.y=724;
+	// start point//
 
-	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y );
+	Turtle.tposition.x = 194;
+	Turtle.tposition.y = 724;
+
+	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y);
 	// first triangle
 
 	Turtle.pen_down();
 	Turtle.turn(90);
 	Turtle.move(a, renderer);
-	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y );
+	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y);
 	Turtle.turn(120);
 	Turtle.move(a, renderer);
-	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y );
+	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y);
 	Turtle.turn(120);
 	Turtle.move(a, renderer);
-	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y );
+	printf("coords %d %d \n", Turtle.tposition.x, Turtle.tposition.y);
 	Turtle.turn(120);
 	return 0;
 }
 
-
 int Sierp(int n, int rd, double a, SDL_Renderer *renderer)
 {
 	// make this start after triangle drawn
-	Turtle.move(a/2, renderer);
+	Turtle.move(a / 2, renderer);
 	Turtle.turn(60);
 	Turtle.pen_down();
-	Turtle.move(a/2, renderer);
+	Turtle.move(a / 2, renderer);
 	Turtle.turn(120);
-	Turtle.move(a/2, renderer);
+	Turtle.move(a / 2, renderer);
 	Turtle.turn(120);
-	Turtle.move(a/2, renderer);
+	Turtle.move(a / 2, renderer);
 	Turtle.turn(60);
 
 	if (rd == n)
+	{
+
 		return 1;
+	}
 	else
-		return 1 + Sierp(n + 1, rd, a/2, renderer);
+	{
+		return 1 + Sierp(n + 1, rd, a / 2, renderer);
+	}
 }
 
 int main(void)
