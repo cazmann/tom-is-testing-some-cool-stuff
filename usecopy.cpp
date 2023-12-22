@@ -96,7 +96,7 @@ int Sierp(int n, int rd, double a, SDL_Renderer *renderer)
 	Turtle.move(a / 2, renderer);
 	Turtle.turn(60);
 
-	if (rd == n)
+	if (rd-1 == n)
 	{
 
 		return 1;
